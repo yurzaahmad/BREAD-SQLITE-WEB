@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Daftar siswa</h1>
+      <br />
+      <br />
+      <form action="/" method="GET">
+        <div class="form-group">
+          <input type="checkbox" class="form-check-input" name="checkId" id="exampleCheck1" />
+          <label for="exampleInputEmail1"> id</label>
+          <input
+            type="integer" class="form-control" name="Id" value="" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+        </div> 
+
+        <div class="form-group">
+          <input type="checkbox" class="form-check-input" name="checkString" id="exampleCheck1" />
+          <label for="exampleInputEmail1">string</label>
+          <input
+            type="string"
+            class="form-control"
+            name="String"
+            value=""
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <div class="form-group">
+          <input type="checkbox" class="form-check-input" name="checkInteger" id="exampleCheck1" />
+          <label for="exampleInputEmail1">integer</label>
+          <input
+            type="integer"
+            class="form-control"
+            name="Integer"
+            value=""
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+          
+          
+        </div>
+        <div class="form-group">
+          <input type="checkbox" class="form-check-input" name="checkFloat" id="exampleCheck1" />
+          <label for="exampleInputEmail1">float</label>
+          <input
+            type="integer"
+            class="form-control"
+            name="Float"
+            value=""
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+         
+        </div>
+        <div class="form-group row">
+          <label for="Date" class="col-sm-2 col-form-label">
+              <input class="form-check-input" type="checkbox" name="checkDate" value="" id="Date">
+              Date
+          </label>
+          <div class="col-sm-2">
+              <input type="date" name="startDate" class="form-control" id="Date" placeholder="start date">
+              <h6>to</h6>
+              <input type="date" name="endDate" class="form-control" id="Date" placeholder="end date">
+          </div>
+      </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" name="checkBoolean" id="exampleCheck1" />
+          <label class="form-check-label" for="exampleCheck1" >Boolean</label>
+          <select class="custom-select custom-select-lg mb-3" name="boolean">
+            <option selected>Open this select menu</option>
+            <option value="true" >True</option>
+            <option value="false" >False</option>
+          </select>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">SEARCH</button>
+      </form>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>String</th>
+            <th>Integer</th>
+            <th>Float</th>
+            <th>Date</th>
+            <th>Boolean</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% data.forEach((item, index) =>{ %>
+          <tr>
+            <td><%= item.id %></td>
+            <td><%= item.string %></td>
+            <td><%= item.integer %></td>
+            <td><%= item.float %></td>
+            <td><%= item.date %></td>
+            <td><%= item.boolean %></td>
+            <td>
+              <a href="delete/<%= item.id %>" class="btn btn-danger">delete</a>
+              <a href="edit/<%= item.id %>" class="btn btn-danger">edit</a>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+      <script
+        src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"
+      ></script>
+      <nav aria-label="Page navigation example">
+        <form method="GET">
+        <ul class="pagination">
+          <% if(page==1) { %>
+            <li class="page-item  disabled">
+              <button type="submit" name="page" value="<%= Number(page)-1 %>" class="page-link   ">Previous</button>
+            </li>
+            <% }else{ %>
+              <li class="page-item">
+              
+              <button type="submit" name="page" value="<%= Number(page)-1 %>" class="page-link   ">Previous</button>
+              </li>
+            <%}%>
+            <% for(let index=1; index<= pages;index++){ %>
+           
+            <%  if(page == index){ %>
+              <li class="page-item active">
+                <button type="submit" name="page" value="<%= index %>" class="page-link   "><%= index %></button>
+              <% } else { %>
+                <li class="page-item">
+                  <button type="submit" name="page" value="<%= index %>" class="page-link   "><%= index %></button>
+             <% } %>
+       
+              <!-- <a class="page-link   " href="#"><%= index %></a> -->
+            </li>
+          <% } %>
+         <% if(page == pages){ %>
+            <li class="page-item  disabled">
+              <button type="submit" name="page"  value="<%= Number(page)+1 %>" class="page-link   ">Next</button>
+              
+            </li>
+            <% } else { %>
+              <li class="page-item">
+              <button type="submit" name="page" value="<%= Number(page)+1 %>" class="page-link   ">Next</button>
+              </li>
+            <% } %>
+        </ul>
+      </form>
+      </nav>
+      <a href="add" class="btn btn-primary">tambah</a>
+    </div>
+  </body>
+</html>

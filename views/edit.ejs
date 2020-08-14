@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Edit Data</h1>
+      <form action="" method="post">
+        <div class="row">
+          <div class="col-sm-2">
+            <label for="string" class="col-sm-2 col-form-label">String</label>
+          </div>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="string"
+              name="string"
+              value="<%= data.string%>"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-sm-2">
+            <label for="integer" class="col-sm-2 col-form-label">Integer</label>
+          </div>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="integer"
+              name="integer"
+              value="<%= data.integer%>"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-sm-2">
+            <label for="float" class="col-sm-2 col-form-label">Float</label>
+          </div>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="float"
+              name="float"
+              value="<%= data.float%>"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-sm-2">
+            <label for="date" class="col-sm-2 col-form-label">Date</label>
+          </div>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="date"
+              name="date"
+              value="<%= data.date%>"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-sm-2">
+            <label for="boolean" class="col-sm-2 col-form-label">Boolean</label>
+          </div>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="boolean"
+              name="boolean"
+              value="<%= data.boolean%>"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">UPDATE</button>
+        <a href="/" class="btn btn-primary">BACK</a>
+      </form>
+      <script
+        src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"
+      ></script>
+    </div>
+  </body>
+</html>
+<!-- dataSiswa.splice(req.params.id, 1) -->
